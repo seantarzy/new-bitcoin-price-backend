@@ -22,7 +22,7 @@ BitcoinPriceSchema.statics.scrapePrice = async function (currency) {
     console.log("scraping yo")
   console.log(currency);
   let googleUrl = `https://www.google.com/search?q=bitcoin+price+in+${currency}&rlz=1C5CHFA_enUS879US879&oq=bitcoin+pri&aqs=chrome.0.35i39i457j69i57j0i131i433j0i20i131i263i433j0i131i433l4.1883j0j4&sourceid=chrome&ie=UTF-8`;
-  let browser = await puppeteer.launch({ headless: true });
+  let browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
   let page = await browser.newPage();
   await page.goto(googleUrl, { waitUntil: "networkidle2" });
 
