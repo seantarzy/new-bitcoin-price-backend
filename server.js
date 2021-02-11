@@ -59,8 +59,11 @@ var bitcoinPriceRoutes = require("./api/routes/bitcoinPriceRoutes");
 
 
 bitcoinPriceRoutes(app); //register the route
-itemRoutes(app)
+itemRoutes(app);
 
+var homeRoute = require("./api/routes/homeRoute");
+
+homeRoute(app);
 app.listen(port);
 
 console.log("bitcoin server started on: " + port);
