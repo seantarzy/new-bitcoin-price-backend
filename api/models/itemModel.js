@@ -6,8 +6,9 @@ var Schema = mongoose.Schema;
 var unirest = require("unirest");
 var nconf = require("nconf");
 
-require("dotenv").config();
-
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 var ItemSchema = new Schema({
   title: {
     type: String,
@@ -88,7 +89,7 @@ if (nconf.get("month") != month) {
         useQueryString: true,
       });
 
-      secondReq.end(async function (res) {
+      secondReq.end(async function () {
         if (res.error) throw new Error(res.error);
 
         const amazonItem = new Item({

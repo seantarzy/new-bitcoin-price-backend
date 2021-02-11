@@ -2,8 +2,9 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-require("dotenv").config();
-const puppeteer = require("puppeteer");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}const puppeteer = require("puppeteer");
 
 var BitcoinPriceSchema = new Schema({
   price: {
