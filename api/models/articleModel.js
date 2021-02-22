@@ -22,4 +22,3 @@ var Article = mongoose.model("Articles", ArticleSchema);
 
 module.exports = {Article}
 
-

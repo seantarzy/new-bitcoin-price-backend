@@ -8,4 +8,6 @@ module.exports = function (app) {
   app.route("/articles/:articleId");
 
   app.post("/article", article.create_an_article)
+  
+  app.delete("/articles", article.delete_all_articles)
 };
