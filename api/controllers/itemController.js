@@ -12,7 +12,7 @@ exports.list_all_items = function (req, res) {
 };
 
 exports.create_an_item = function (req, res) {
-  var new_task = new Task(req.body);
+  var new_task = new Item(req.body);
   new_task.save(function (err, task) {
     if (err) res.send(err);
     res.json(task);

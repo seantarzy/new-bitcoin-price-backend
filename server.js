@@ -8,8 +8,9 @@ var express = require("express"),
 
     mongoose.Promise = global.Promise;
 
-    mongoose.connect("mongodb://localhost/itemdb", { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect("mongodb://localhost/", { useNewUrlParser: true, useUnifiedTopology: true });
 
+    
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -17,16 +18,16 @@ app.use(cors());
 
 
 var itemRoutes = require('./api/routes/itemRoutes'); //importing route
-
-itemRoutes(app);
-
+var articleRoutes = require('./api/routes/articleRoutes'); //importing route
 var homeRoute = require("./api/routes/homeRoute");
 
+itemRoutes(app);
+articleRoutes(app);
 homeRoute(app);
+
 app.listen(port);
 
 console.log("bitcoin server started on: " + port);
-
 
 app.use(function (req, res) {
   res.status(404).send({ url: req.originalUrl + " not found" });
