@@ -6,4 +6,6 @@ module.exports = function (app) {
   app.route("/items").get(item.list_all_items);
 
   app.route("/items/:itemId");
+
+  app.delete("/items", item.delete_all_items);
 };

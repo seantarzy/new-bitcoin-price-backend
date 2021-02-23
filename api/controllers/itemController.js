@@ -17,4 +17,10 @@ exports.create_an_item = function (req, res) {
     if (err) res.send(err);
     res.json(task);
   });
-};
+}
+  exports.delete_all_items = function (req, res) {
+    Item.deleteMany({}, function (err, items) {
+      if (err) res.send(err);
+      res.json(items);
+    });
+  };
